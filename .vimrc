@@ -33,6 +33,11 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'fatih/vim-go'
 "NeoBundle 'vim-jp/vim-go-extra'
+NeoBundle 'elixir-lang/vim-elixir'
+NeoBundle 'mattreduce/vim-mix'
+NeoBundle 'BjRo/vim-extest'
+NeoBundle 'rizzatti/dash.vim'
+NeoBundle 'tpope/vim-obsession'
 
 call neobundle#end()
 
@@ -156,63 +161,6 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
     \ }
 
-" for golang {{{
-"set rtp+=$GOPATH/src/github.com/nsf/gocode/vim
-"set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-"let g:gofmt_command = 'goimports'
-"au BufNewFile,BufRead *.go set sw=2 noexpandtab ts=2 completeopt=menu,preview
-"au FileType go autocmd BufWritePre  Fmt
-"au FileType go compiler go
-
-"let g:syntastic_go_checkers = ['go', 'golint']
-"let g:syntastic_mode_map = { "mode": "passive", "active_filetypes": ["go"] }
-"
-"vim-goの設定
-"let g:go_fmt_autosave = 1
-"let g:go_fmt_fail_silently = 1
-"au FileType go nmap <Leader>gd <Plug>(go-doc)
-"au FileType go nmap <leader>b <Plug>(go-build)
-"" }}}
-
-" VimFilerTree {{{
-"command! VimFilerTree call VimFilerTree()
-"function VimFilerTree()
-"    exec ':VimFiler -buffer-name=explorer -split -simple -winwidth=45 -toggle -no-quit'
-"    wincmd t
-"    setl winfixwidth
-"endfunction
-"autocmd! FileType vimfiler call g:my_vimfiler_settings()
-"function! g:my_vimfiler_settings()
-"    nmap     <buffer><expr><CR> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
-"    nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<CR>
-"    nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<CR>
-"endfunction
-
-"let my_action = {'is_selectable' : 1}
-"function! my_action.func(candidates)
-"    wincmd p
-"    exec 'split '. a:candidates[0].action__path
-"endfunction
-"call unite#custom_action('file', 'my_split', my_action)
-
-"let my_action = {'is_selectable' : 1}
-"function! my_action.func(candidates)
-"    wincmd p
-"    exec 'vsplit '. a:candidates[0].action__path
-"endfunction
-"call unite#custom_action('file', 'my_vsplit', my_action)
-" }}}
-"
-
-"set runtimepath+=$GOROOT/misc/vim
-"set path+=$GOPATH/src/**
-"set rtp+=$GOPATH/src/github.com/nsf/gocode/vim
-"set rtp+=$GOPATH/src/github.com/golang/lint/misc/vim
-"au BufNewFile,BufRead *.go set sw=2 noexpandtab ts=2 completeopt=menu,preview
-"au FileType go au BufWritePre Fmt
-"au FileType go compiler go
-"set completeopt=menu,preview
-""
 let g:syntastic_go_checkers = ['go', 'golint']
 let g:syntastic_mode_map = { "mode": "passive", "active_filetypes": ["go"] }
 "
@@ -227,9 +175,5 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_fmt_command = "goimports"
 
-""
-"cnoremap goi GoImport<space>
-
-
-"filetype off
-"filetype plugin indent off
+" for elixir
+imap >> \|><Space>
